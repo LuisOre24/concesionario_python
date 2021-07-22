@@ -36,8 +36,8 @@
                                 <td class="text-bold-500">{{ marca.marca }}</td>
                                 <td>
                                     <div class="btn-group" role="group">
-                                        <a href="{ % url 'app:marca_update' % }" class="btn btn-warning">Actualizar</a>
-                                        <a href="{ % url 'app:marca_delete' % }" class="btn btn-danger">Cam. Estado</a>
+                                        <a href="{% url 'app:marca_update' marca.id %}" class="btn btn-warning">Actualizar</a>
+                                        <a href="{% url 'app:marca_delete' marca.id %}" class="btn btn-danger">Cam. Estado</a>
                                     </div>
                                 </td>
                             </tr>
