@@ -1,0 +1,58 @@
+{% extends 'layouts/main.html' %}
+
+
+{% block content %}
+
+<section class="section">
+    <div class="card">
+        <div class="card-header">
+            <h4 class="card-title">
+                <div class="row">
+                    <div class="col-12 col-md-6 order-md-1 order-last">
+                        <h3>Title</h3>
+                    </div>
+                    <div class="col-12 col-md-6 order-md-2 order-first">
+                        <a href="{% url 'app:transmision_create' %}" class="btn btn-primary">Crear</a>
+                    </div>
+                </div>
+            </h4>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-lg">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Transmision</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for transmision in transmisiones %}
+                            <tr>
+                                <td class="text-bold-500">
+                                    {{forloop.counter}}
+                                </td>
+                                <td class="text-bold-500">{{ transmision.transmision }}</td>
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        <a href="{% url 'app:transmision_update' transmision.id %}" class="btn btn-warning">Actualizar</a>
+                                        <a href="{% url 'app:transmision_delete' transmision.id %}" class="btn btn-danger">Cam. Estado</a>
+                                    </div>
+                                </td>
+                            </tr>
+                        {% empty %}
+                            <tr>
+                                <td class="text-center" colspan="4">
+                                    No hay elementos registrados
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

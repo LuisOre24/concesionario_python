@@ -134,8 +134,7 @@ class AutoForm(forms.ModelForm):
             ),
             'id_transmision' : forms.SelectMultiple(
                 attrs={
-                    'class': 'form-control',
-                    'placeholder': 'Tipo de Transmision'
+                    'class': 'form-control'
                 }
             ),
             'año_fabricacion' : forms.TextInput(
@@ -168,6 +167,9 @@ class AutoForm(forms.ModelForm):
                     'placeholder': 'Estado'
                 }
             ),
-            'imagen' : forms.ImageField()
-
+            'imagen' : forms.FileInput(
+                attrs={
+                    'class': 'form-control'
+                }
+            )
         }
